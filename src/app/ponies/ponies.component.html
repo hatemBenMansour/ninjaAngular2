@@ -1,0 +1,8 @@
+<div *ngIf="ponies.length > 0">
+  <button (click)="refreshPonies()">Actualiser</button>
+  <ul>
+    <li *ngFor="let pony of ponies | slice: 0:2;let isEven=even" [style.color]="isEven ? 'black' : 'red'">
+      {{pony.name}}
+    </li>
+  </ul>
+</div>
