@@ -9,6 +9,7 @@ import {ApiService} from "./api/api.service";
 import {RacesService} from "./races/races.service";
 import {FakeApiService} from "./api/fake-api.service";
 import { FromNowPipe } from './pipes/from-now.pipe';
+import { DoNothingDirective } from './directives/do-nothing.directive';
 
 const IS_PROD = false;
 
@@ -18,7 +19,8 @@ const IS_PROD = false;
     RacesComponent,
     PoniesComponent,
     PonyComponent,
-    FromNowPipe
+    FromNowPipe,
+    DoNothingDirective
   ],
   imports: [
     BrowserModule
