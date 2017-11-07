@@ -1,9 +1,16 @@
 <div *ngIf="ponies.length > 0">
   <button (click)="refreshPonies()">Actualiser</button>
-  <div appDoNothing [logText]="data" >{{'2017-11-01' | fromNow }}</div>
+  <div appDoNothing [logText]="data" >{{'2017-11-01' | fromNow }} </div>
   <ul>
     <li *ngFor="let pony of ponies; let isEven=even" [style.color]="isEven ? 'black' : 'red'">
       {{pony.name}} <button (click)="refreshPonies()">Séléctionner</button>
+
     </li>
+
   </ul>
+  <h1 class="red">Liste de poneys : </h1>
+  <ul>
+    <app-pony *ngFor="let pony of ponies" [pony]="pony" (ponySelected)="betOnPony($event)"></app-pony>
+  </ul>
+
 </div>

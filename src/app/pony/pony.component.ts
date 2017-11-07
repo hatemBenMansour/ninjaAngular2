@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Pony} from "./pony";
 
 @Component({
   selector: 'app-pony',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PonyComponent implements OnInit {
 
+  @Input() pony:Pony;
+  @Output('ponySelected') emitter = new EventEmitter<Pony>();
+
   constructor() { }
 
   ngOnInit() {
+  }
+  selectPony(){
+    this.emitter.emit(this.pony);
+    console.log(`pony selectionner est ${this.pony.name}`);
   }
 
 }

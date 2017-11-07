@@ -1,6 +1,7 @@
 import {Component, OnInit, EventEmitter} from '@angular/core';
 import {JsonPipe} from "@angular/common";
 import {Observable} from "rxjs";
+import {Pony} from "../pony/pony";
 
 @Component({
   selector: 'app-ponies',
@@ -9,7 +10,7 @@ import {Observable} from "rxjs";
   styleUrls: ['./ponies.component.css']
 })
 export class PoniesComponent implements OnInit {
-  ponies: Array<any> = [{name: 'ponie 1'}, {name: 'ponie 2'}, {name: 'ponie 3'}];
+  ponies: Array<Pony> = [{id:1,name: 'ponie 1'}, {id:2,name: 'ponie 2'}, {id:3,name: 'ponie 3'}, {id:4,name: 'ponie 4'}, {id:5,name: 'ponie 5'}];
   poniesJson: string;
   data:Number =12345;
 
@@ -42,7 +43,11 @@ export class PoniesComponent implements OnInit {
   }
 
   refreshPonies() {
-    this.ponies = [{name: 'ponie 1'}, {name: 'ponie 2'}, {name: 'ponie 3'}, {name: 'ponie 4'}, {name: 'ponie 5'}];
+    this.ponies = [{id:1,name: 'ponie 1'}, {id:1,name: 'ponie 2'}, {id:1,name: 'ponie 3'}, {id:1,name: 'ponie 4'}, {id:1,name: 'ponie 5'}];
+  }
+
+  betOnPony(pony){
+    console.log(`le poney récuperer depuis la parent ${pony}`);
   }
 
 }
