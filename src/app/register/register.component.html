@@ -1,0 +1,13 @@
+<h2>Enregistrer</h2>
+<form (ngSubmit)="register()" #userForm="ngForm">
+
+  <div>
+    <label>UserName</label><input name="username" type="text" [(ngModel)]="user.username">
+    <small>{{user.username}} !</small>
+  </div>
+  <div>
+    <label>Password</label><input name="password" type="password" [(ngModel)]="user.password">
+    <small>{{user.password}} !</small>
+  </div>
+  <button type="submit">Register</button>
+</form>

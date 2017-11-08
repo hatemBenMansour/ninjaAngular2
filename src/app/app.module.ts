@@ -1,5 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
 import {RacesComponent} from './races/races.component';
@@ -10,6 +11,7 @@ import {RacesService} from "./races/races.service";
 import {FakeApiService} from "./api/fake-api.service";
 import {FromNowPipe} from './pipes/from-now.pipe';
 import {DoNothingDirective} from './directives/do-nothing.directive';
+import {RegisterComponent} from './register/register.component';
 
 const IS_PROD = false;
 
@@ -20,10 +22,11 @@ const IS_PROD = false;
     PoniesComponent,
     PonyComponent,
     FromNowPipe,
-    DoNothingDirective
+    DoNothingDirective,
+    RegisterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,FormsModule
   ],
   providers: [RacesService,
     {provide: ApiService, useClass: IS_PROD ? ApiService : FakeApiService}],
