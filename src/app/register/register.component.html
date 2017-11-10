@@ -1,13 +1,24 @@
 <h2>Enregistrer</h2>
-<form (ngSubmit)="register()" #userForm="ngForm">
+<form (ngSubmit)="register()" [formGroup]="userForm">
 
   <div>
-    <label>UserName</label><input name="username" type="text" [(ngModel)]="user.username">
-    <small>{{user.username}} !</small>
+    <label>UserName</label><input formControlName="username">
+    <div *ngIf="usernameCtrl.dirty && usernameCtrl.hasError('required')"> identifiant est requis</div>
+    <div *ngIf="usernameCtrl.dirty && usernameCtrl.hasError('minlength')"> identifiant doit avoir 3 caracteres minimum</div>
   </div>
   <div>
-    <label>Password</label><input name="password" type="password" [(ngModel)]="user.password">
-    <small>{{user.password}} !</small>
+    <label>Password</label><input  type="password" formControlName="password">
+    <div *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('required')">mot de passe est obligatoire</div>
+    <div *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('minlength')">mot de passe doit avoir 5 caratere minimum</div>
   </div>
-  <button type="submit">Register</button>
+  <div>
+    <label>Date de naissance</label> <input type="date" formControlName="birthday">
+    <div *ngIf="birthdayCtrl.dirty">
+      <div *ngIf="birthdayCtrl.hasError('required')">La date de naissance est obligatoire</div>
+      <div *ngIf="birthdayCtrl.hasError('tooYoung')">Vous etes trop jeunes</div>
+
+    </div>
+  </div>
+  <button type="submit" [disabled]="!userForm.valid">Register</button>
+  <button type="button" (click)="reset()" >Initialiser</button>
 </form>
