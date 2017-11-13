@@ -1,0 +1,7 @@
+<div>
+  <div [ngStyle]="{'cursor':'pointer'}" (click)="detailsAlbum(album)"><h3>{{album.title}}</h3></div>
+
+  <div *ngIf="selectedAlbum && selectedAlbum.id === album.id">
+    {{selectedAlbum.title }}
+  </div>
+</div>

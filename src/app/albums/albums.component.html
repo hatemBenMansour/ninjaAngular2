@@ -1,0 +1,13 @@
+<div>
+  <h2>Liste des albums</h2>
+  <app-album *ngFor="let album of albums | slice:0:17" [album]="album" ></app-album>
+
+  <div *ngFor="let album of albums | slice:0:17">
+   <div [ngStyle]="{'cursor':'pointer'}"  (click)="getAlbum(album.id)"> {{album.title}}</div>
+
+
+  </div>
+
+
+
+</div>

@@ -4,13 +4,28 @@
   <div>
     <label>UserName</label><input formControlName="username">
     <div *ngIf="usernameCtrl.dirty && usernameCtrl.hasError('required')"> identifiant est requis</div>
-    <div *ngIf="usernameCtrl.dirty && usernameCtrl.hasError('minlength')"> identifiant doit avoir 3 caracteres minimum</div>
+    <div *ngIf="usernameCtrl.dirty && usernameCtrl.hasError('minlength')"> identifiant doit avoir 3 caracteres minimum
+    </div>
   </div>
-  <div>
-    <label>Password</label><input  type="password" formControlName="password">
-    <div *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('required')">mot de passe est obligatoire</div>
-    <div *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('minlength')">mot de passe doit avoir 5 caratere minimum</div>
+  <div formGroupName="passwordForm">
+    <div>
+      <label>Password</label><input type="password" formControlName="password">
+      <div *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('required')">mot de passe est obligatoire</div>
+      <div *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('minlength')">mot de passe doit avoir 5 caratere minimum
+      </div>
+      <div>Strength: {{passwordStrength}}</div>
+    </div>
+    <div>
+      <label>Confirm Password</label><input type="password" formControlName="confirm">
+      <div *ngIf="confirmCtrl.dirty && confirmCtrl.hasError('required')">confirmation mot de passe est obligatoire
+      </div>
+      <div *ngIf="passwordForm.dirty && passwordForm.hasError('matchingError')">les mot de passe ne sont
+        pas
+        identiques
+      </div>
+    </div>
   </div>
+
   <div>
     <label>Date de naissance</label> <input type="date" formControlName="birthday">
     <div *ngIf="birthdayCtrl.dirty">
@@ -20,5 +35,5 @@
     </div>
   </div>
   <button type="submit" [disabled]="!userForm.valid">Register</button>
-  <button type="button" (click)="reset()" >Initialiser</button>
+  <button type="button" (click)="reset()">Initialiser</button>
 </form>
