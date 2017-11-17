@@ -14,7 +14,8 @@ export class AlbumsService {
   }
 
   getAlbum(id) {
-    return this.http.get(`${this.baseApiUrl}/albums/1`).map(res => res.json());
+    return this.http.get(`${this.baseApiUrl}/albums/${id}`)
+      .map(res => res.json());
   }
 
 }

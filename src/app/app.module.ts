@@ -2,7 +2,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
-
+import {RouterModule} from '@angular/router';
+import {ROUTES} from './app.routes';
 import {AppComponent} from './app.component';
 import {RacesComponent} from './races/races.component';
 import {PoniesComponent} from './ponies/ponies.component';
@@ -13,8 +14,10 @@ import {FakeApiService} from "./api/fake-api.service";
 import {FromNowPipe} from './pipes/from-now.pipe';
 import {DoNothingDirective} from './directives/do-nothing.directive';
 import {RegisterComponent} from './register/register.component';
-import { AlbumsComponent } from './albums/albums.component';
-import { AlbumComponent } from './albums/album/album.component';
+import {AlbumsComponent} from './albums/albums.component';
+import {AlbumComponent} from './albums/album/album.component';
+import {HomeComponent} from './home/home.component';
+
 
 const IS_PROD = false;
 const baseUrl = 'https://jsonplaceholder.typicode.com';
@@ -29,14 +32,15 @@ const baseUrl = 'https://jsonplaceholder.typicode.com';
     DoNothingDirective,
     RegisterComponent,
     AlbumsComponent,
-    AlbumComponent
+    AlbumComponent,
+    HomeComponent
   ],
   imports: [
-    BrowserModule,FormsModule,ReactiveFormsModule,HttpModule
+    BrowserModule,RouterModule.forRoot(ROUTES), FormsModule, ReactiveFormsModule, HttpModule
   ],
   providers: [RacesService,
     {provide: ApiService, useClass: IS_PROD ? ApiService : FakeApiService},
-    {provide:'base_api_url',useValue:'https://jsonplaceholder.typicode.com'}
+    {provide: 'base_api_url', useValue: 'https://jsonplaceholder.typicode.com'}
   ],
   bootstrap: [AppComponent]
 })

@@ -21,8 +21,6 @@ export class AlbumsComponent implements OnInit {
     );
   }
 
-  getAlbum(id) {
-    console.log(id);
-  }
+
 
 }
