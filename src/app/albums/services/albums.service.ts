@@ -18,4 +18,9 @@ export class AlbumsService {
       .map(res => res.json());
   }
 
+  search(query){
+    return this.http.get(`${this.baseApiUrl}/albums`)
+      .map(res => res.json());
+  }
+
 }

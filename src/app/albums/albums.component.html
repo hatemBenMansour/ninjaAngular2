@@ -1,14 +1,14 @@
 <div>
   <h2>Liste des albums</h2>
- <!-- <app-album *ngFor="let album of albums | slice:0:17" [album]="album" ></app-album>-->
-
+  <!-- <app-album *ngFor="let album of albums | slice:0:17" [album]="album" ></app-album>-->
+  <form [formGroup]="searchForm">
+    <input formControlName="searchAlbum" placeholder="Rechercher un album">
+  </form>
   <div *ngFor="let album of albums | slice:0:17 ">
-    <a href="" [ngStyle]="{'cursor':'pointer'}"  [routerLink]="['/albums',album.id]">{{album.title}}</a>
-
+    <a href="" [ngStyle]="{'cursor':'pointer'}" [routerLink]="['/albums',album.id]">{{album.title}}</a>
 
 
   </div>
-
 
 
 </div>

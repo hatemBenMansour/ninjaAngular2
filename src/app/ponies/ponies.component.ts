@@ -2,6 +2,7 @@ import {Component, OnInit, EventEmitter} from '@angular/core';
 import {JsonPipe} from "@angular/common";
 import {Observable} from "rxjs";
 import {Pony} from "../pony/pony";
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-ponies',
